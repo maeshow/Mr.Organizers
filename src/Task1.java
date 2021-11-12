@@ -11,11 +11,11 @@ public class Task1 {
 
     public static void main(String[] args) {
         dividePrice(TOTAL_PRICE, NUMBER_OF_MALE, NUMBER_OF_FEMALE);
+        showResult();
     }
 
     private static void dividePrice(int totalPrice, int numberOfMale, int numberOfFemale) {
         computePrice(totalPrice, numberOfMale, numberOfFemale);
-        showResult();
     }
 
     private static void computePrice(int totalPrice, int numberOfMale, int numberOfFemale) {

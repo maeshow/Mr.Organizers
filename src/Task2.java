@@ -3,7 +3,7 @@ public class Task2 {
     private static int TOTAL_PRICE = 12000;
     private static int NUMBER_OF_MALE = 3;
     private static int NUMBER_OF_FEMALE = 3;
-    private static int bias = 1000 / Type.values().length;
+    private static int bias = 1000;
 
     private static enum Type {
         MALE, FEMALE
@@ -11,16 +11,17 @@ public class Task2 {
 
     public static void main(String[] args) {
         dividePrice(TOTAL_PRICE, NUMBER_OF_MALE, NUMBER_OF_FEMALE);
+        showResult();
     }
 
     private static void dividePrice(int totalPrice, int numberOfMale, int numberOfFemale) {
         computePrice(totalPrice, numberOfMale, numberOfFemale);
-        showResult();
     }
 
     private static void computePrice(int totalPrice, int numberOfMale, int numberOfFemale) {
-        RESULT[Type.MALE.ordinal()] = totalPrice / (numberOfMale + numberOfFemale) + bias;
-        RESULT[Type.FEMALE.ordinal()] = totalPrice / (numberOfMale + numberOfFemale) - bias;
+        int discountedPeopleOfPrice = (totalPrice - bias * numberOfMale) / (numberOfMale + numberOfFemale);
+        RESULT[Type.MALE.ordinal()] = discountedPeopleOfPrice + bias;
+        RESULT[Type.FEMALE.ordinal()] = discountedPeopleOfPrice;
     }
 
     private static void showResult() {
